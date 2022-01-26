@@ -1,7 +1,8 @@
 var x=0;
-var y=100;
-var sizeX=75;
-var sizeY=30;
+var y=550;
+var y2=500;
+//var sizeX=75;
+//var sizeY=30;
 
 
 function setup()
@@ -34,8 +35,7 @@ function draw()
     circle(152,489, 5);
     //other fish
     fill(217, 234, 13);
-    ellipse(300,550, 75,30);
-    ellipse(x,y, sizeX, sizeY);
+    ellipse(x,y2, 75,30);
     if(x >= 870)
     {
         speedX= random(1,10);
@@ -45,15 +45,17 @@ function draw()
     {
         speedX = random(1,10);
     }
-    else if(y >= 870)
+     x= x+speedX;
+     fill(234, 13, 137)
+     ellipse(x,y, 75,30);
+     if(x >= 870)
     {
-        speedY= random(1,10);
-        speedY= -speedY;
+        speedX= random(1,10);
+        speedX= -speedX;
     }
     else if(x < 0)
     {
-        speedY = random(1,10);
+        speedX = random(1,10);
     }
-    x= x+speedX;
-    y= y+speedY;
+     x= x+speedX;
 }
