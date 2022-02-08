@@ -2,6 +2,7 @@ var x=0;
 var y=550;
 var y2=500;
 var img;
+var img2;
 //var sizeX=75;
 //var sizeY=30;
 var whaleX= 0;
@@ -17,21 +18,28 @@ var fishYs= [];
 var swimSpeedXs= [];
 var swimSpeedYs= [];
 
-var fishSize= 50;
+var fishSize= 10;
+
+
+
 function preload() 
 {
-    img = loadImage('Assets/ocean.jpg');
-    whale = loadImage('Assets/whale.png');
-    fish = loadImage('Assets/fish.jpeg');
+    //img = loadImage('Assets/ocean.jpg');
+    whale = loadImage('Assets/images.jpeg');
+    Bfish = loadImage('Assets/fish.jpeg');
 }
 
+let bg;
+let yb= 0;
 
 function setup()
 {
+   
     speedX= random(1,10);
     spaadY= random(1,10);
 
-    image(img, 0, 0); 
+    //image(img, 0, 0); 
+    bg= loadImage('Assets/ocean.jpg');
     createCanvas(980, 800);
     background(40, 186, 237);
     speedX= random(1,10);
@@ -42,7 +50,8 @@ function setup()
 
     for(var i = 0; i < fishSize; i++)
     {
-        fish[i] = img;
+        //console.log(i)
+        fish[i] = Bfish;
         fishXs[i] = fishX;
         fishYs[i] = fishY;
         fishX = random(0,w);
@@ -55,7 +64,10 @@ function setup()
 
 function draw()
 {
-    image(img, 0, 0); 
+    
+    moveWhale();
+    //image(img, 0, 0); 
+    background(bg);
 
     //background
     /*fill(58,90,223);
@@ -63,17 +75,19 @@ function draw()
     fill(196,157,78);
     rect(0,750, 870,250);*/
     
-    image(whale, 0,0);
-    image(fish, 50,50);
+    image(whale, whaleX,whaleY);
+    //image(fish, 50,50);
+    image(Bfish, x,y);
 
     for(var i = 0; i < fish.length; i++)
     {
-        
+        //console.log(i)
         image(fish[i], 
             fishXs[i], fishYs[i]);
             fishXs[i] += swimSpeedXs[i];
             fishYs[i] += swimSpeedYs[i];
     }
+
     //whale(whaleX, whaleY, 20)
     //name and title
     fill(0,0,0);
@@ -93,6 +107,8 @@ function draw()
     //other fish
     fill(217, 234, 13);
     ellipse(x,y2, 75,30);
+    //image(Bfish, 50,50);
+
     if(x >= 870)
     {
         speedX= random(1,10);
@@ -119,8 +135,9 @@ function draw()
 
 function moveWhale()
 {
+    
     if(keyIsPressed)
-    {
+    {console.log("a");
         if(key== 'a')
         {
             whaleX-=5;
