@@ -113,15 +113,15 @@ function draw()
         }
     }
 
+    //if(timerValue <= 0 && showImages == true)
+    //{
+        //console.log("a")
+          //  drawImages();
+    //}
+
     moveWhale();
     //image(img, 0, 0); 
     background(bg);
-
-    //background
-    /*fill(58,90,223);
-    rect(0,300, 870,500);
-    fill(196,157,78);
-    rect(0,750, 870,250);*/
     
     image(whale, whaleX,whaleY, 550, 350);
     //image(fish, 50,50);
@@ -130,6 +130,8 @@ function draw()
     image(dory, x,y3, 125,75)
     image(zeb, x,y4, 125,75)
 
+    // this draws the bubbles
+    console.log(fishXs[0]);
     for(var i = 0; i < fish.length; i++)
     {
         //console.log(i)
@@ -139,7 +141,6 @@ function draw()
             fishYs[i] += swimSpeedYs[i];
     }
 
-    //whale(whaleX, whaleY, 20)
     //name and title
     fill(0,0,0);
     textFont('cursive');
@@ -147,19 +148,6 @@ function draw()
     text("Morgan Bowman",830,790);
     textSize(30);
     text("Feeding Time",10,35);
-    //mian fish
-    /*fill(240, 153, 0);
-    ellipse(130,500, 100,65);
-    ellipse(80,500, 30,75)
-    fill(0,0,0);
-    circle(168,510, 15);
-    circle(153,490, 10);
-    fill(255,255,255);
-    circle(152,489, 5);*/
-    //other fish
-    fill(217, 234, 13);
-    //ellipse(x,y2, 75,30);
-    //image(Bfish, 50,50);
 
     if(x >= 870)
     {
@@ -189,16 +177,30 @@ function drawImages()
 {
     for(var i = 0; i < fishXs.length; i++)
     {
-        console.log('a')
+    //    console.log('a')
         image(bubble,fishXs[i],10); 
  
-    }  
+    }
+
+    // for(var i = 0; i < fishXs.length; i++)
+   // {
+    //    console.log('a')
+     //   image(bubble,fishXs[i],10); 
+ 
+    //}
+    
+   
 }
 
 function timeIt() {
     //console.log("a")
     if (timerValue > 0) {   
         timerValue--;
+    }
+    // this resets the x's and y's when it hits zero
+    if(timerValue == 0)
+    {
+        resetBubbles();
     }
 }
 
@@ -224,5 +226,20 @@ function moveWhale()
         {
             whaleY-=5;
         }
+    }
+}
+
+function resetBubbles()
+{
+    var h = window.displayHeight;
+    var w = window.displayWidth;
+    for(var i = 0; i < fishSize; i++)
+    {
+        
+        fish[i] = bubble;
+        fishXs[i] = fishX;
+        fishYs[i] = fishY;
+        fishX = random(0,w);
+        fishY  = random(0,h);
     }
 }
