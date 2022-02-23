@@ -44,13 +44,7 @@ function preload()
     zeb = loadImage('Assets/fish.png');
     bubble = loadImage('Assets/bubble.png');
 
-    names= loadStrings("./Whale.txt");
-    for(var k= 0; k< names.length; k++)
-    {
-        img= loadImage("./Whale Sprites/" + names[k])
-        imageClassObject= new imageClass(img, 100,100, 153,73);
-        imagesToDisplay[k]= imageClassObject;
-    }
+    names= loadStrings("./Assets/Whale.txt");
 }
 
 let bg;
@@ -94,7 +88,7 @@ function setup()
     }
     for(var k= 0; k, names.length; k++)
     {
-        img= loadImage(".Whale Sprites/" + names[k]);
+        img= loadImage("./Assets/Whale Sprites/" + names[k]);
         imageClassObject= new imageClass(img, 100,100, 153,73);
         imagesToDisplay[k]= imageClassObject;
     }
@@ -178,8 +172,8 @@ function draw()
     else if(x < 0)
     {
         speedX = random(1,10);
+        x= x+speedX;
     }
-     x= x+speedX;
 
      image(imagesToDisplay[i].getImage(),
      imagesToDisplay[i].getX(),
