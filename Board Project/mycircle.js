@@ -12,3 +12,4 @@ class mycircle
         //circle1(this.x,this.y,this.diameter)
     }
 }
+

@@ -28,6 +28,12 @@ var fishSize= 10;
 
 var initialX= 100;
 
+var names= [];
+var myImage;
+var i= 0;
+var imagesToDisplay= [];
+var imageClassObject;
+
 function preload() 
 {
     //img = loadImage('Assets/ocean.jpg');
@@ -35,8 +41,16 @@ function preload()
     Bfish = loadImage('Assets/blue.png');
     Ofish = loadImage('Assets/orange.png');
     dory = loadImage('Assets/dory.png');
-    zeb = loadImage('Assets/fish.png')
-    bubble = loadImage('Assets/bubble.png')
+    zeb = loadImage('Assets/fish.png');
+    bubble = loadImage('Assets/bubble.png');
+
+    names= loadStrings("./Whale.txt");
+    for(var k= 0; k< names.length; k++)
+    {
+        img= loadImage("./Whale Sprites/" + names[k])
+        imageClassObject= new imageClass(img, 100,100, 153,73);
+        imagesToDisplay[k]= imageClassObject;
+    }
 }
 
 let bg;
@@ -78,6 +92,13 @@ function setup()
         swimSpeedYs[i] = random(-10, 10);    
         
     }
+    for(var k= 0; k, names.length; k++)
+    {
+        img= loadImage(".Whale Sprites/" + names[k]);
+        imageClassObject= new imageClass(img, 100,100, 153,73);
+        imagesToDisplay[k]= imageClassObject;
+    }
+    //setInterval(animation, 100);
 }
 
 function draw()
@@ -159,19 +180,26 @@ function draw()
         speedX = random(1,10);
     }
      x= x+speedX;
-     fill(234, 13, 137);
-     //ellipse(x,y, 75,30);
-    /* if(x >= 870)
-    {
-        speedX= random(1,10);
-        speedX= -speedX;
-    }
-    else if(x < 0)
-    {
-        speedX = random(1,10);
-        x= x+speedX;
-    }    */
+
+     image(imagesToDisplay[i].getImage(),
+     imagesToDisplay[i].getX(),
+     imagesToDisplay[i].getY(),
+     imagesToDisplay[i].getW(),
+     imagesToDisplay[i].getH());
 }
+
+/*function animation()
+{
+    i+=1;
+    if(i>= imagesToDisplay.length)
+    {
+        i= 0
+    }
+    for(var m= 0; m< imagesToDisplay.length; m++)
+    {
+        imagesToDisplay[m].moveX(10);
+    }
+}  */
 
 function drawImages()
 {
