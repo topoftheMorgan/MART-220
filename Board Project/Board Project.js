@@ -10,6 +10,7 @@ var img2;
 var whaleX= 0;
 var whaleY= 0;
 var fishX= 0, fishY= 0;
+var i= 0
 
 var timerValue= 5;
 var showImages= true;
@@ -30,7 +31,7 @@ var initialX= 100;
 
 var names= [];
 var myImage;
-var i= 0;
+var g= 0;
 var imagesToDisplay= [];
 var imageClassObject;
 
@@ -86,13 +87,14 @@ function setup()
         swimSpeedYs[i] = random(-10, 10);    
         
     }
-    for(var k= 0; k, names.length; k++)
+    //console.log('hi'+ names.length);
+    for(var k= 0; k< names.length; k++)
     {
         img= loadImage("./Assets/Whale Sprites/" + names[k]);
-        imageClassObject= new imageClass(img, 100,100, 153,73);
+        imageClassObject= new imageClass(img, 100,100, 253,250);
         imagesToDisplay[k]= imageClassObject;
     }
-    //setInterval(animation, 100);
+    setInterval(SetAnimation, 200);
 }
 
 function draw()
@@ -174,26 +176,26 @@ function draw()
         speedX = random(1,10);
         x= x+speedX;
     }
-
-     image(imagesToDisplay[i].getImage(),
-     imagesToDisplay[i].getX(),
-     imagesToDisplay[i].getY(),
-     imagesToDisplay[i].getW(),
-     imagesToDisplay[i].getH());
+//console.log('hi'+ g)
+     image(imagesToDisplay[g].getImage(),
+     imagesToDisplay[g].getX(),
+     imagesToDisplay[g].getY(),
+     imagesToDisplay[g].getW(),
+     imagesToDisplay[g].getH());
 }
 
-/*function animation()
+function SetAnimation()
 {
-    i+=1;
-    if(i>= imagesToDisplay.length)
+    g+=1;
+    if(g>= imagesToDisplay.length)
     {
-        i= 0
+        g= 0
     }
-    for(var m= 0; m< imagesToDisplay.length; m++)
+    /*for(var m= 0; m< imagesToDisplay.length; m++)
     {
         imagesToDisplay[m].moveX(10);
-    }
-}  */
+    }*/
+}  
 
 function drawImages()
 {
