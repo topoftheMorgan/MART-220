@@ -45,7 +45,8 @@ function preload()
     zeb = loadImage('Assets/fish.png');
     bubble = loadImage('Assets/bubble.png');
 
-    names= loadStrings("./Assets/Whale.txt");
+    //names= loadStrings("./Assets/Whale.txt");
+    preloadWhale()
 }
 
 let bg;
@@ -60,7 +61,7 @@ function setup()
 
     //image(img, 0, 0); 
     bg= loadImage('Assets/ocean.jpg');
-    createCanvas(980, 800);
+    createCanvas(displayWidth, displayHeight);
 
     /*for(var i=0; i<50; i++)
     {
@@ -88,13 +89,14 @@ function setup()
         
     }
     //console.log('hi'+ names.length);
-    for(var k= 0; k< names.length; k++)
+    /*for(var k= 0; k< names.length; k++)
     {
         img= loadImage("./Assets/Whale Sprites/" + names[k]);
-        imageClassObject= new imageClass(img, 100,100, 253,250);
+        imageClassObject= new imageClass(img, 100,100, 303,300);
         imagesToDisplay[k]= imageClassObject;
     }
-    setInterval(SetAnimation, 200);
+    setInterval(SetAnimation, 200);*/
+    setupWhale()
 }
 
 function draw()
@@ -140,7 +142,7 @@ function draw()
     //image(img, 0, 0); 
     background(bg);
     
-    image(whale, whaleX,whaleY, 550, 350);
+    //image(whale, whaleX,whaleY, 550, 350);
     //image(fish, 50,50);
     image(Bfish, x,y, 125,75);
     image(Ofish, x,y2, 125,75)
@@ -177,11 +179,12 @@ function draw()
         x= x+speedX;
     }
 //console.log('hi'+ g)
-     image(imagesToDisplay[g].getImage(),
+     /*image(imagesToDisplay[g].getImage(),
      imagesToDisplay[g].getX(),
      imagesToDisplay[g].getY(),
      imagesToDisplay[g].getW(),
-     imagesToDisplay[g].getH());
+     imagesToDisplay[g].getH());*/
+     drawWhale()
 }
 
 function SetAnimation()
