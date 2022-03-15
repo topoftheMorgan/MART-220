@@ -26,7 +26,7 @@ function setupWhale()
     whale= createSprite(100,250)
     whale.addAnimation('swim','Assets/Whale Sprites/'+ swim[0],'Assets/Whale Sprites/'+ swim[swim.length-1]);
 
-    mine = createSprite(700,800, );
+    mine = createSprite(700,800);
     mine.addImage(loadImage('Assets/mine.png'));
 }
 
@@ -41,25 +41,44 @@ function drawWhale()
 
     if(keyDown('d'))
     {
-		whale.changeAnimation('swim')
+		whale.changeAnimation('swim');
 		whale.velocity.x += .5;
         if(whale.collide(mine))
         {
-            whale.changeAnimation('swim');
+            console.log(whale.position.x+" "+ whale.position.y)
+           //whale.changeAnimation('swim');
+           //whale.velocity.x= 0
         }
 	}
 	else if(keyDown('a'))
     {
 		//whale.changeAnimation('swim')
 		whale.velocity.x -= .5;
+        if(whale.collide(mine))
+        {
+            console.log(whale.position.x+" "+ whale.position.y)
+           //whale.changeAnimation('swim');
+           //whale.velocity.x= 0
+        }
 	}
     else if(keyDown('s'))
     {
-
         whale.velocity.y+=.5;
+        if(whale.collide(mine))
+        {
+            console.log(whale.position.x+" "+ whale.position.y)
+           //whale.changeAnimation('swim');
+           //whale.velocity.x= 0
+        }
     }else if(keyDown('w'))
     {
         whale.velocity.y-=.5;
+        if(whale.collide(mine))
+        {
+            console.log(whale.position.x+" "+ whale.position.y)
+           //whale.changeAnimation('swim');
+           //whale.velocity.x= 0
+        }
     }
     else 
     {

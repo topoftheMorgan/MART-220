@@ -138,7 +138,7 @@ function draw()
           //  drawImages();
     //}
 
-    moveWhale();
+    //moveWhale();
     //image(img, 0, 0); 
     background(bg);
     
@@ -150,7 +150,7 @@ function draw()
     image(zeb, x,y4, 125,75)
 
     // this draws the bubbles
-    console.log(fishXs[0]);
+    //console.log(fishXs[0]);
     for(var i = 0; i < fish.length; i++)
     {
         //console.log(i)
@@ -236,7 +236,7 @@ function moveWhale()
 {
     
     if(keyIsPressed)
-    {console.log("a");
+    {//console.log("a");
         if(key== 'a')
         {
             whaleX-=5;
@@ -244,7 +244,7 @@ function moveWhale()
 
         else if(key== 'd')
         {
-            whaleX+=5;
+            //whaleX+=5;
         }
         else if(key== 's')
         {
